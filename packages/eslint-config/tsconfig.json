@@ -1,0 +1,13 @@
+{
+  "include": ["**/*"],
+  "exclude": ["node_modules", "dist"],
+  "extends": "typescript-config/base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": ".",
+    "esModuleInterop": true,
+    "module": "esnext",
+    "target": "esnext",
+    "tsBuildInfoFile": "./dist/ts-build-info.tsbuildinfo"
+  }
+}

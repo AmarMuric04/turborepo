@@ -1,0 +1,13 @@
+{
+  "include": ["**/*"],
+  "exclude": ["node_modules", "dist"],
+  "extends": "typescript-config/base.json",
+  "compilerOptions": {
+    "types": ["jest", "node"],
+    "outDir": "dist",
+    "rootDir": ".",
+    "declaration": true,
+    "declarationDir": "dist",
+    "verbatimModuleSyntax": false
+  }
+}

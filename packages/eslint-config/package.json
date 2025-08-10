@@ -1,0 +1,23 @@
+{
+  "name": "eslint-configuration",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "eslint ."
+  },
+  "exports": {
+    ".": "./dist/eslint.config.mjs"
+  },
+  "dependencies": {
+    "nima-eslint": "workspace:*"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "@types/node": "^24.2.0",
+    "eslint": "^9.32.0",
+    "globals": "^16.3.0",
+    "jiti": "^2.5.1",
+    "typescript-config": "workspace:*",
+    "typescript-eslint": "^8.39.0"
+  }
+}

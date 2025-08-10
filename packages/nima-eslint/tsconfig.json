@@ -1,0 +1,15 @@
+{
+  "include": ["**/*"],
+  "exclude": ["node_modules", "dist"],
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": ".",
+    "esModuleInterop": true,
+    "module": "esnext",
+    "target": "esnext",
+    "tsBuildInfoFile": "./dist/ts-build-info.tsbuildinfo",
+    "moduleResolution": "bundler",
+    "declaration": true,
+    "declarationDir": "dist"
+  }
+}

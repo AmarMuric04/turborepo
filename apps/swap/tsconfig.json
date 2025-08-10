@@ -1,0 +1,19 @@
+{
+  "extends": "typescript-config/base.json",
+  "include": ["**/*"],
+  "exclude": ["node_modules", "dist"],
+  "compilerOptions": {
+    "types": ["vite/client", "vitest/globals", "vitest/importMeta", "node"],
+    "typeRoots": ["./types", "./node_modules/@types", "./node_modules"],
+    "rootDir": ".",
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "components/*": ["./src/components/*"]
+    },
+    "module": "esnext",
+    "target": "esnext",
+    "jsx": "react-jsx",
+    "tsBuildInfoFile": "./dist/ts-build-info.tsbuildinfo"
+  }
+}

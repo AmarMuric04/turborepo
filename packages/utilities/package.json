@@ -1,0 +1,32 @@
+{
+  "name": "utilities",
+  "type": "module",
+  "scripts": {
+    "dev": "jest --watch",
+    "build": "tsc",
+    "lint": "eslint src",
+    "test": "jest",
+    "check-types": "tsc --noEmit"
+  },
+  "exports": {
+    "./math": "./dist/src/math/index.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.2.0",
+    "eslint": "^9.32.0",
+    "eslint-configuration": "workspace:*",
+    "globals": "^16.3.0",
+    "jest": "^30.0.5",
+    "jiti": "^2.5.1",
+    "nima-eslint": "workspace:*",
+    "ts-jest": "^29.4.1",
+    "typescript": "5.9.2",
+    "typescript-config": "workspace:*",
+    "typescript-eslint": "^8.39.0"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.2"
+  }
+}
