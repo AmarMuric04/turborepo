@@ -9,11 +9,6 @@ const config = {
     "^.+\\.tsx?$": ["ts-jest", { useESM: true }],
   },
   extensionsToTreatAsEsm: [".ts"],
-  globals: {
-    "ts-jest": {
-      useESM: true,
-    },
-  },
   testMatch: ["**/__tests__/**/*.test.ts"],
   verbose: true,
   collectCoverageFrom: ["src/**/*.{ts,tsx,js,jsx}"],

@@ -3,7 +3,7 @@ import tseslint from "typescript-eslint";
 import { defineConfig } from "eslint/config";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-import pluginNIMA from "nima-eslint";
+import dragonswap from "eslint-plugin-dragonswap";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -37,11 +37,13 @@ export default defineConfig([
   {
     plugins: {
       // @ts-expect-error ---
-      myplugin: pluginNIMA,
+      dragonswap,
     },
     rules: {
-      "myplugin/no-console-error": "error",
-      "myplugin/no-handler-suffix": "error",
+      "dragonswap/no-console-error": "error",
+      "dragonswap/no-handler-suffix": "error",
+      "dragonswap/prefer-react-with-hooks": "error",
+      "dragonswap/prefer-arrow-functions": "error",
     },
   },
 ]);
