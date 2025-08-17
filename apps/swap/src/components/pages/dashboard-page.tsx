@@ -2,6 +2,7 @@ import { sum } from "utilities/math";
 
 const DashboardPage = () => {
   const handleCaclulation = (a: number, b: number) => {
+
     return sum(a, b);
   };
 
