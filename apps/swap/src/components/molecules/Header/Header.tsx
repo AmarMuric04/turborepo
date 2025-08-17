@@ -3,7 +3,7 @@ import { ThemeSwitcher } from "../ThemeSwitcher";
 
 const Header = () => {
   return (
-    <header className="px-32 flex h-16 gap-2 w-full justify-between items-center">
+    <header className="flex h-16 gap-2 w-full justify-between items-center">
       <div className="flex items-center gap-2">
         <Bitcoin />
         <p className="text-sm font-thin hidden lg:block">Murga swap</p>

@@ -2,12 +2,11 @@ import { sum } from "utilities/math";
 
 const DashboardPage = () => {
   const handleCaclulation = (a: number, b: number) => {
-
     return sum(a, b);
   };
 
   return (
-    <div className="bg-background-primary text-content-primary min-h-screen px-32">
+    <div>
       <h1>
         This page uses the sum(a, b) function created in the
         &quot;utilities/math&quot; package!
