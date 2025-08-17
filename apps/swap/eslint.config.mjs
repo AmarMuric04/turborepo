@@ -42,6 +42,7 @@ export default defineConfig([
     ignores: ["*.config.{ts,d.ts,js}"],
     rules: {
       "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off",
     },
   },
 ]);

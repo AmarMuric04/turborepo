@@ -10,8 +10,13 @@ import { routeTree } from "./routeTree.gen";
 
 import "./styles.css";
 import reportWebVitals from "./reportWebVitals";
-import { config } from "config";
+import { config } from "wagmi.config";
 import { hashFn } from "wagmi/query";
+import {
+  darkTheme,
+  RainbowKitProvider,
+  type DisclaimerComponent,
+} from "@rainbow-me/rainbowkit";
 
 // Create a new router instance
 const router = createRouter({
@@ -43,29 +48,54 @@ const rootElement = document.getElementById("app");
 if (rootElement && !rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
 
-  //   root.render(
-  //     <StrictMode>
-  //       <WagmiProvider config={config}>
-  //         <QueryClientProvider client={queryClient}>
-  //           <RainbowKitProvider theme={darkTheme()}>
-  //             <RouterProvider router={router} />
-  //           </RainbowKitProvider>
-  //         </QueryClientProvider>
-  //       </WagmiProvider>
-  //     </StrictMode>
-  //   );
-  // }
+  const Disclaimer: DisclaimerComponent = ({ Text, Link }) => (
+    <Text>
+      By connecting your wallet, you agree to the{" "}
+      <Link href="https://termsofservice.xyz">Terms of Service</Link> and
+      acknowledge you have read and understand the protocol{" "}
+      <Link href="https://disclaimer.xyz">Disclaimer</Link>
+    </Text>
+  );
 
   root.render(
     <StrictMode>
       <WagmiProvider config={config}>
         <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router} />
+          <RainbowKitProvider
+            theme={darkTheme({
+              ...darkTheme.accentColors.green,
+              borderRadius: "large",
+              fontStack: "system",
+              overlayBlur: "large",
+            })}
+            modalSize="wide"
+            initialChain={1}
+            locale="en"
+            showRecentTransactions={true}
+            appInfo={{
+              appName: "MurgaSwap",
+              learnMoreUrl: "https://learnaboutcryptowallets.example",
+              disclaimer: Disclaimer,
+            }}
+          >
+            <RouterProvider router={router} />
+          </RainbowKitProvider>
         </QueryClientProvider>
       </WagmiProvider>
     </StrictMode>
   );
 }
+
+//   root.render(
+//     <StrictMode>
+//       <WagmiProvider config={config}>
+//         <QueryClientProvider client={queryClient}>
+//           <RouterProvider router={router} />
+//         </QueryClientProvider>
+//       </WagmiProvider>
+//     </StrictMode>
+//   );
+// }
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

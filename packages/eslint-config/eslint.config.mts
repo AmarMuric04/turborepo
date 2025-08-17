@@ -30,7 +30,7 @@ export default defineConfig([
     files: ["**/*"],
     ignores: ["**/*.js", "**/*.test.ts", "**/*.config.mts"],
     rules: {
-      "max-lines": ["error", 100],
+      "max-lines": ["error", 500],
     },
   },
 

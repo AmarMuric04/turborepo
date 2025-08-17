@@ -1,6 +1,6 @@
 import { useConnect } from "wagmi";
 
-export const WalletOptions = () => {
+export const WalletConnection = () => {
   const { connectors, connect } = useConnect();
 
   return connectors.map((connector) => (

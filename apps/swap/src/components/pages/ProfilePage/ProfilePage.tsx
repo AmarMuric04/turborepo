@@ -11,7 +11,7 @@ import {
 import { getBlockQueryOptions } from "wagmi/query";
 import { Link } from "@tanstack/react-router";
 // import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { Account, SendTransaction, WalletOptions } from "components/molecules";
+import { Account, SendTransaction } from "components/molecules";
 import { ReadContract } from "components/molecules/ReadContract";
 import { MintNFT } from "components/molecules/MintNFT";
 
@@ -50,7 +50,6 @@ const ProfilePage = () => {
       ) : (
         <div>
           <p>You&apos;re not connected!</p>
-          <WalletOptions />
           {/* <ConnectButton /> */}
         </div>
       )}

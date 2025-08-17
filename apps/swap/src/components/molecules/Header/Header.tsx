@@ -1,5 +1,6 @@
 import { Bitcoin } from "lucide-react";
-import { ThemeSwitcher } from "../ThemeSwitcher";
+import { ThemeSwitcher } from "components/molecules";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const Header = () => {
   return (
@@ -10,9 +11,15 @@ const Header = () => {
       </div>
       <div className="flex items-center gap-2">
         <ThemeSwitcher />
-        <button className="text-white rounded-3xl text-sm px-4 py-2 bg-button-primary">
+        {/* <button className="text-white rounded-3xl text-sm px-4 py-2 bg-button-primary">
           Launch App
-        </button>
+        </button> */}
+        <ConnectButton
+          accountStatus="full"
+          label="Connect to MurgaSwap"
+          chainStatus="full"
+          showBalance={true}
+        />
       </div>
     </header>
   );

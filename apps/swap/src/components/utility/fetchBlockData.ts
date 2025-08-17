@@ -1,4 +1,4 @@
-import { config } from "config";
+import { config } from "wagmi.config";
 import { queryClient } from "src/main";
 import { getBlockQueryOptions } from "wagmi/query";
 // import type { Block } from "viem";
