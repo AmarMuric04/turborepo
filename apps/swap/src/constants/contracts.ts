@@ -10,6 +10,13 @@ export const wagmiContractConfig = {
     },
     {
       type: "function",
+      name: "ownerOf",
+      stateMutability: "view",
+      inputs: [{ type: "uint256" }],
+      outputs: [{ type: "address" }],
+    },
+    {
+      type: "function",
       name: "totalSupply",
       stateMutability: "view",
       inputs: [],
@@ -17,3 +24,13 @@ export const wagmiContractConfig = {
     },
   ],
 } as const;
+
+export const abi = [
+  {
+    name: "mint",
+    type: "function",
+    stateMutability: "nonpayable",
+    inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
+    outputs: [],
+  },
+] as const;

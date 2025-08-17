@@ -38,12 +38,17 @@ const ReadContract = ({
       },
       {
         ...wagmiContractConfig,
+        functionName: "ownerOf",
+        args: [69n],
+      },
+      {
+        ...wagmiContractConfig,
         functionName: "totalSupply",
       },
     ],
   });
 
-  const [balance, totalSupply] = data || [];
+  const [balance, ownerOf, totalSupply] = data || [];
 
   React.useEffect(() => {
     refetch();
@@ -74,6 +79,7 @@ const ReadContract = ({
     <div>
       <div>Balance: {balance?.result?.toString()}</div>
       <div>Total Supply: {totalSupply?.result?.toString()}</div>
+      <div>Owner: {ownerOf?.result?.toString()}</div>
     </div>
   );
 };

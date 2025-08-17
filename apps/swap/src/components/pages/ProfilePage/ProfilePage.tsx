@@ -13,6 +13,7 @@ import { Link } from "@tanstack/react-router";
 // import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { Account, SendTransaction, WalletOptions } from "components/molecules";
 import { ReadContract } from "components/molecules/ReadContract";
+import { MintNFT } from "components/molecules/MintNFT";
 
 const ProfilePage = () => {
   const account = useAccount();
@@ -68,6 +69,7 @@ const ProfilePage = () => {
       <Account />
       <SendTransaction />
       <ReadContract address={account.address} />
+      <MintNFT />
     </div>
   );
 };
