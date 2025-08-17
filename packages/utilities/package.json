@@ -20,7 +20,7 @@
     "globals": "^16.3.0",
     "jest": "^30.0.5",
     "jiti": "^2.5.1",
-    "nima-eslint": "workspace:*",
+    "eslint-plugin-dragonswap": "workspace:*",
     "ts-jest": "^29.4.1",
     "typescript": "5.9.2",
     "typescript-config": "workspace:*",

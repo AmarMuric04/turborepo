@@ -1,7 +1,8 @@
 import { sum } from "utilities/math";
 
 const DashboardPage = () => {
-  const handleCalculation = (a: string, b: number) => {
+  const handleCaclulation = (a: number, b: number) => {
+
     return sum(a, b);
   };
 
@@ -19,7 +20,7 @@ const DashboardPage = () => {
       <div className="bg-background-tertiary p-20 rounded-2xl text-center my-10 flex flex-col gap-8 items-center">
         <p>The result of doing sum(2, 1) is</p>
         <p className="bg-background-secondary rounded-lg text-xl size-20 grid place-items-center">
-          {handleCalculation(2, 1)}
+          {handleCaclulation(2, 1)}
         </p>
       </div>
     </div>

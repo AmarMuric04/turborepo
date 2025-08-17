@@ -3,7 +3,7 @@ import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import { defineConfig } from "eslint/config";
 import pluginRouter from "@tanstack/eslint-plugin-router";
-import pluginNIMA from "nima-eslint";
+import dragonswap from "eslint-plugin-dragonswap";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import defaultConfig from "eslint-configuration";
@@ -14,6 +14,7 @@ export default defineConfig([
   ...pluginRouter.configs["flat/recommended"],
   ...defaultConfig,
   pluginReact.configs.flat.recommended,
+
   {
     settings: {
       react: {
@@ -41,13 +42,14 @@ export default defineConfig([
     files: ["src/**/*"],
     ignores: ["*.config.{ts,d.ts,js}"],
     plugins: {
-      myplugin: pluginNIMA,
+      dragonswap,
     },
     rules: {
       "react/react-in-jsx-scope": "off",
       // "myplugin/no-console-log": "error",
       // "myplugin/no-console-error": "error",
       // "myplugin/no-console-warn": "warn",
+      "dragonswap/prefer-react-with-hooks": "error",
     },
   },
 
