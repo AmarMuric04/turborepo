@@ -3,6 +3,7 @@ import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { WagmiProvider } from "wagmi";
+import "@rainbow-me/rainbowkit/styles.css";
 
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen";
@@ -10,6 +11,7 @@ import { routeTree } from "./routeTree.gen";
 import "./styles.css";
 import reportWebVitals from "./reportWebVitals";
 import { config } from "config";
+import { hashFn } from "wagmi/query";
 
 // Create a new router instance
 const router = createRouter({
@@ -28,12 +30,32 @@ declare module "@tanstack/react-router" {
   }
 }
 
-const queryClient = new QueryClient();
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      queryKeyHashFn: hashFn,
+    },
+  },
+});
 
 // Render the app
 const rootElement = document.getElementById("app");
 if (rootElement && !rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
+
+  //   root.render(
+  //     <StrictMode>
+  //       <WagmiProvider config={config}>
+  //         <QueryClientProvider client={queryClient}>
+  //           <RainbowKitProvider theme={darkTheme()}>
+  //             <RouterProvider router={router} />
+  //           </RainbowKitProvider>
+  //         </QueryClientProvider>
+  //       </WagmiProvider>
+  //     </StrictMode>
+  //   );
+  // }
+
   root.render(
     <StrictMode>
       <WagmiProvider config={config}>
