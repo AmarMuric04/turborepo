@@ -4,7 +4,7 @@ import { Header } from "components/molecules";
 const RootComponent = () => {
   return (
     <div className="text-content-primary bg-background-primary min-h-screen">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-2">
         <Header />
         <Outlet />
       </div>

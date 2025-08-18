@@ -10,7 +10,6 @@ import {
 } from "wagmi";
 import { getBlockQueryOptions } from "wagmi/query";
 import { Link } from "@tanstack/react-router";
-// import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { Account, SendTransaction } from "components/molecules";
 import { ReadContract } from "components/molecules/ReadContract";
 import { MintNFT } from "components/molecules/MintNFT";
@@ -33,25 +32,34 @@ const ProfilePage = () => {
 
   return (
     <div>
-      <p>
-        {!account.isConnected ? null : status === "pending" ? (
-          <div>Loading ENS name</div>
-        ) : status === "error" ? (
-          <div>Error fetching ENS name: {error.message}</div>
-        ) : (
-          <div>ENS name: {data}</div>
+      <div className="bg-background-tertiary px-4 py-2 rounded-xl w-fit">
+        <div className="flex items-center gap-2">
+          {account.isConnected && (
+            <>
+              <p>Connected with {account.connector?.name}</p>
+              <div className="size-2 rounded-full animate-pulse bg-green-400" />
+            </>
+          )}
+        </div>
+
+        {!account.isConnected && (
+          <div>
+            <p>You&apos;re not connected!</p>
+          </div>
         )}
-      </p>
-      {account.isConnected ? (
+      </div>
+      {account.isConnected && (
         <>
           <p>Your address: {account.address}</p>
           <p>Connected on {account?.connector?.name ?? "Unknown"}</p>
         </>
+      )}
+      {!account.isConnected ? null : status === "pending" ? (
+        <div>Loading ENS name</div>
+      ) : status === "error" ? (
+        <div>Error fetching ENS name: {error.message}</div>
       ) : (
-        <div>
-          <p>You&apos;re not connected!</p>
-          {/* <ConnectButton /> */}
-        </div>
+        <div>ENS name: {data}</div>
       )}
       <p>{balance?.value}</p>
       <button

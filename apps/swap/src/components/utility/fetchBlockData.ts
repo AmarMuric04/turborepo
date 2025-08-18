@@ -14,14 +14,14 @@ export const fetchBlockData = async () => {
   );
 };
 
-// export const getPendingBlockData = () => {
-//   return queryClient.getQueryData(
-//     getBlockQueryOptions(config, {
-//       chainId: config.state.chainId,
-//       tag: "pending",
-//     })
-//   );
-// };
+export const getPendingBlockData = () => {
+  return queryClient.getQueryData(
+    getBlockQueryOptions(config, {
+      chainId: config.state.chainId,
+      tag: "pending",
+    })
+  );
+};
 
 // export const setPendingBlockData = (data: Block) => {
 //   return queryClient.setQueryData(
