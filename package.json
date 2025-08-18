@@ -12,24 +12,15 @@
     "validate": "turbo run lint test check-types",
     "prepare": "husky"
   },
-  "lint-staged": {
-    "*.{ts,tsx,js,jsx}": "eslint",
-    "*.{ts,tsx}": "tsc-files -p tsconfig.json --noEmit"
-  },
   "license": "ISC",
   "devDependencies": {
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.5",
     "prettier": "^3.6.2",
-    "tsc-files": "^1.1.4",
     "turbo": "^2.5.5",
     "typescript": "^5.9.2"
   },
   "packageManager": "pnpm@8.9.0",
   "engines": {
     "node": ">=18"
-  },
-  "pre-commit": [
-    "lint"
-  ]
+  }
 }
