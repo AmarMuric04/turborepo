@@ -1,6 +1,13 @@
 // import { base, celo, mainnet, optimism, sepolia, zora } from "wagmi/chains";
 import { getDefaultConfig, type Chain } from "@rainbow-me/rainbowkit";
-import { mainnet, sepolia } from "wagmi/chains";
+import {
+  arbitrum,
+  base,
+  linea,
+  mainnet,
+  optimism,
+  polygon,
+} from "wagmi/chains";
 import { http } from "wagmi";
 // import { createConfig, http, type Config } from "wagmi";
 // import { injected, metaMask, safe, walletConnect } from "wagmi/connectors";
@@ -28,11 +35,15 @@ const avalanche = {
 export const config = getDefaultConfig({
   appName: "MurgaSwap",
   projectId: "a",
-  chains: [mainnet, sepolia, avalanche],
+  chains: [mainnet, avalanche, optimism, linea, base, arbitrum, polygon],
   transports: {
     [mainnet.id]: http(),
-    [sepolia.id]: http(),
     [avalanche.id]: http(),
+    [optimism.id]: http(),
+    [linea.id]: http(),
+    [base.id]: http(),
+    [arbitrum.id]: http(),
+    [polygon.id]: http(),
   },
 });
 

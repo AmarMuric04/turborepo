@@ -1,14 +1,20 @@
 import { Outlet, createRootRoute } from "@tanstack/react-router";
-import { Header } from "components/molecules";
+import { PageSection } from "components/atoms";
+import { Footer, Header } from "components/molecules";
 
 const RootComponent = () => {
   return (
-    <div className="text-content-primary bg-background-primary min-h-screen">
-      <div className="container mx-auto px-2">
+    <>
+      <PageSection>
         <Header />
-        <Outlet />
-      </div>
-    </div>
+      </PageSection>
+
+      <Outlet />
+
+      <PageSection>
+        <Footer />
+      </PageSection>
+    </>
   );
 };
 

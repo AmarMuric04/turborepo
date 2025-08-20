@@ -6,7 +6,7 @@ const ThemeSwitcher = () => {
 
   return (
     <button
-      className="text-content-primary bg-background-secondary p-2 rounded-md"
+      className="text-content-primary bg-background-secondary rounded-md p-2"
       onClick={toggleTheme}
     >
       {isDarkTheme ? <Moon size={16} /> : <Sun size={16} />}

@@ -86,6 +86,18 @@
   --color-green-800: rgb(22 101 52);
   --color-green-900: rgb(20 83 45);
   --color-green-950: rgb(5 46 22);
+
+  --color-pink-50: rgb(253 242 248);
+  --color-pink-100: rgb(252 231 243);
+  --color-pink-200: rgb(251 207 232);
+  --color-pink-300: rgb(249 168 212);
+  --color-pink-400: rgb(244 114 182);
+  --color-pink-500: rgb(236 72 153);
+  --color-pink-600: rgb(219 39 119);
+  --color-pink-700: rgb(190 24 93);
+  --color-pink-800: rgb(157 23 77);
+  --color-pink-900: rgb(131 24 67);
+  --color-pink-950: rgb(80 7 36);
 }
 
 body {
@@ -96,10 +108,10 @@ body {
   --content-secondary: var(--color-neutral-800);
   --content-tertiary: var(--color-neutral-700);
 
-  --button-link-primary: var(--color-blue-50);
-  --button-link-secondary: var(--color-blue-400);
+  --button-link-primary: var(--color-green-50);
+  --button-link-secondary: var(--color-green-400);
 
-  --badge-info: var(--color-blue-300);
+  --badge-info: var(--color-green-300);
   --badge-neutral: var(--color-neutral-300);
   --badge-success: var(--color-green-300);
   --badge-error: var(--color-red-400);
@@ -108,8 +120,8 @@ body {
   --background-secondary: var(--color-neutral-200);
   --background-tertiary: var(--color-neutral-300);
 
-  --button-primary: var(--color-blue-600);
-  --button-secondary: var(--color-blue-400);
+  --button-primary: var(--color-green-600);
+  --button-secondary: var(--color-green-400);
 
   --card: var(--color-neutral-100);
 }
@@ -122,10 +134,10 @@ body {
   --content-primary: var(--color-neutral-50);
   --content-tertiary: var(--color-neutral-400);
 
-  --button-link-primary: var(--color-blue-50);
-  --button-link-secondary: var(--color-blue-400);
+  --button-link-primary: var(--color-green-50);
+  --button-link-secondary: var(--color-green-400);
 
-  --badge-info: var(--color-blue-300);
+  --badge-info: var(--color-green-300);
   --badge-neutral: var(--color-neutral-300);
   --badge-success: var(--color-green-300);
   --badge-error: var(--color-red-400);
@@ -134,8 +146,8 @@ body {
   --background-secondary: var(--color-neutral-900);
   --background-tertiary: var(--color-neutral-800);
 
-  --button-primary: var(--color-blue-600);
-  --button-secondary: var(--color-blue-400);
+  --button-primary: var(--color-green-600);
+  --button-secondary: var(--color-green-400);
 
   --card: var(--color-neutral-950);
 }
@@ -144,4 +156,8 @@ body {
   img {
     display: initial;
   }
+}
+
+button {
+  cursor: pointer;
 }

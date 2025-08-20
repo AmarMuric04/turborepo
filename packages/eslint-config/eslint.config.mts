@@ -44,6 +44,8 @@ export default defineConfig([
       "dragonswap/no-handler-suffix": "error",
       "dragonswap/prefer-react-with-hooks": "error",
       "dragonswap/prefer-arrow-functions": "error",
+      "dragonswap/boolean-naming-convention": "warn",
+      "dragonswap/prefer-object-as-args": ["error", { ignore: ["e", "event"] }],
     },
   },
 ]);

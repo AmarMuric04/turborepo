@@ -6,12 +6,14 @@ import pluginRouter from "@tanstack/eslint-plugin-router";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import defaultConfig from "eslint-configuration";
+import pluginTailwindcss from "eslint-plugin-tailwindcss";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig([
   ...pluginRouter.configs["flat/recommended"],
   ...defaultConfig,
+  ...pluginTailwindcss.configs["flat/recommended"],
   pluginReact.configs.flat.recommended,
 
   {
@@ -43,6 +45,7 @@ export default defineConfig([
     rules: {
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
+      "tailwindcss/no-custom-classname": "off",
     },
   },
 ]);
