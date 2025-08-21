@@ -10,12 +10,19 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SwapIndexRouteImport } from './routes/swap/index'
 import { Route as ProfileIndexRouteImport } from './routes/profile/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
+import { Route as BridgeIndexRouteImport } from './routes/bridge/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SwapIndexRoute = SwapIndexRouteImport.update({
+  id: '/swap/',
+  path: '/swap/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProfileIndexRoute = ProfileIndexRouteImport.update({
@@ -28,35 +35,48 @@ const DashboardIndexRoute = DashboardIndexRouteImport.update({
   path: '/dashboard/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BridgeIndexRoute = BridgeIndexRouteImport.update({
+  id: '/bridge/',
+  path: '/bridge/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bridge': typeof BridgeIndexRoute
   '/dashboard': typeof DashboardIndexRoute
   '/profile': typeof ProfileIndexRoute
+  '/swap': typeof SwapIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bridge': typeof BridgeIndexRoute
   '/dashboard': typeof DashboardIndexRoute
   '/profile': typeof ProfileIndexRoute
+  '/swap': typeof SwapIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bridge/': typeof BridgeIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/profile/': typeof ProfileIndexRoute
+  '/swap/': typeof SwapIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/profile'
+  fullPaths: '/' | '/bridge' | '/dashboard' | '/profile' | '/swap'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/profile'
-  id: '__root__' | '/' | '/dashboard/' | '/profile/'
+  to: '/' | '/bridge' | '/dashboard' | '/profile' | '/swap'
+  id: '__root__' | '/' | '/bridge/' | '/dashboard/' | '/profile/' | '/swap/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BridgeIndexRoute: typeof BridgeIndexRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
   ProfileIndexRoute: typeof ProfileIndexRoute
+  SwapIndexRoute: typeof SwapIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -66,6 +86,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/swap/': {
+      id: '/swap/'
+      path: '/swap'
+      fullPath: '/swap'
+      preLoaderRoute: typeof SwapIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/profile/': {
@@ -82,13 +109,22 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bridge/': {
+      id: '/bridge/'
+      path: '/bridge'
+      fullPath: '/bridge'
+      preLoaderRoute: typeof BridgeIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BridgeIndexRoute: BridgeIndexRoute,
   DashboardIndexRoute: DashboardIndexRoute,
   ProfileIndexRoute: ProfileIndexRoute,
+  SwapIndexRoute: SwapIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,4 +1,3 @@
-export * from "./Button";
 export * from "./ScaleAnimation";
 export * from "./ConnectWalelt";
 export * from "./RequireWalletConnection";
@@ -10,3 +9,5 @@ export * from "./Switch";
 export * from "./Balance";
 export * from "./TokenPrice";
 export * from "./WalletIcon";
+export * from "./Label";
+export * from "./Buttons";

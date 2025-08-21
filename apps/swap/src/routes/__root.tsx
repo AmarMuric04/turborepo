@@ -5,11 +5,13 @@ import { Footer, Header } from "components/molecules";
 const RootComponent = () => {
   return (
     <>
-      <PageSection>
-        <Header />
-      </PageSection>
+      <main className="flex min-h-screen flex-col">
+        <PageSection>
+          <Header />
+        </PageSection>
 
-      <Outlet />
+        <Outlet />
+      </main>
 
       <PageSection>
         <Footer />

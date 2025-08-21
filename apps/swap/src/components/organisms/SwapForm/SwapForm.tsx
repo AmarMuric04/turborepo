@@ -1,17 +1,17 @@
 import {
   Balance,
   Button,
+  Label,
   RequireWalletConnection,
   ScaleAnimation,
+  SwitchButton,
   TokenIcon,
 } from "components/atoms";
-import { Input, TokenListModal } from "components/molecules";
-import { ArrowDown, ChevronDown } from "lucide-react";
+import { Input, FormCard, TokenSelector } from "components/molecules";
 import React from "react";
 import { useTokenList } from "src/hooks";
 import { useTokenApproval } from "src/hooks/useApproval";
 import type { TokenInfo } from "src/schemas";
-import { cx } from "src/utility";
 import { performSwap } from "src/utility/performSwap";
 import { getAddress, zeroAddress } from "viem";
 import { useAccount } from "wagmi";
@@ -19,50 +19,6 @@ import { useAccount } from "wagmi";
 type SwapTokensType = {
   token0: TokenInfo | null;
   token1: TokenInfo | null;
-};
-
-const Label: React.FC<
-  React.PropsWithChildren<React.LabelHTMLAttributes<HTMLLabelElement>>
-> = ({ children, ...props }) => {
-  return (
-    <label
-      htmlFor="input"
-      className="text-content-secondary text-sm"
-      {...props}
-    >
-      {children}
-    </label>
-  );
-};
-
-const TokenSelector: React.FC<{
-  selectedToken: TokenInfo | null;
-  setSelectedToken: (token: TokenInfo) => void;
-}> = ({ selectedToken, setSelectedToken }) => {
-  return (
-    <TokenListModal onTokenClick={setSelectedToken}>
-      <ScaleAnimation>
-        <div
-          className={cx(
-            "bg-background-secondary border-border-primary flex cursor-pointer items-center gap-1 rounded-xl border px-2 py-1",
-            {
-              "bg-button-primary text-white": !selectedToken,
-            }
-          )}
-        >
-          {selectedToken ? (
-            <>
-              <img className="size-5" src={selectedToken.logoURI} />
-              <p>{selectedToken.symbol}</p>
-            </>
-          ) : (
-            <p>Select a Token</p>
-          )}
-          <ChevronDown size={16} />
-        </div>
-      </ScaleAnimation>
-    </TokenListModal>
-  );
 };
 
 const HighlightedTokens: React.FC<{
@@ -126,7 +82,7 @@ const SwapForm = () => {
     setSelectedTokens({ ...selectedTokens, token1: token });
   };
 
-  const swapSelected = () => {
+  const handleSwapSelected = () => {
     setSelectedTokens({
       token0: selectedTokens.token1,
       token1: selectedTokens.token0,
@@ -142,7 +98,7 @@ const SwapForm = () => {
   });
 
   return (
-    <div className="bg-background-secondary flex flex-col gap-2 rounded-2xl p-2 shadow-2xl">
+    <FormCard>
       <div className="relative flex flex-col gap-2">
         <Input
           disabled={!isConnected}
@@ -157,21 +113,13 @@ const SwapForm = () => {
           }
           centerComponent={
             <TokenSelector
-              selectedToken={selectedTokens.token0}
-              setSelectedToken={selectToken0}
+              item={selectedTokens.token0}
+              onSelect={selectToken0}
             />
           }
         />
 
-        <div className="bg-background-secondary absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded-full p-1">
-          <Button
-            disabled={!isConnected}
-            onClick={swapSelected}
-            className="grid size-8 place-items-center rounded-full p-1 transition-transform duration-300 hover:rotate-360"
-          >
-            <ArrowDown size={16} />
-          </Button>
-        </div>
+        <SwitchButton isDisabled={!isConnected} onClick={handleSwapSelected} />
 
         <Input
           disabled={!isConnected}
@@ -191,8 +139,8 @@ const SwapForm = () => {
           }
           centerComponent={
             <TokenSelector
-              selectedToken={selectedTokens.token1}
-              setSelectedToken={selectToken1}
+              item={selectedTokens.token1}
+              onSelect={selectToken1}
             />
           }
         />
@@ -228,7 +176,7 @@ const SwapForm = () => {
           </Button>
         )}
       </RequireWalletConnection>
-    </div>
+    </FormCard>
   );
 };
 
