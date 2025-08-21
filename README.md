@@ -1,3 +1,6 @@
-Manually crafted turborepo, whole point of this is to master different technologies related to it & not related to it.
+Playground to learn different technologies
 
-Every package, config and normal javascript file is manually written, no cli commands
+Milestones to complete:
+
+- [ ] Create a swap form for differnet tokens in popular chains
+- [ ] Createa a cctp form
