@@ -1,1 +1,1 @@
-export * from "./TokenListModal";
+export { TokenListModal } from "./TokenListModal";

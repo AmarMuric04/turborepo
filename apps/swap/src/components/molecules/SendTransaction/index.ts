@@ -1,1 +1,1 @@
-export * from "./SendTransaction";
+export { SendTransaction } from "./SendTransaction";

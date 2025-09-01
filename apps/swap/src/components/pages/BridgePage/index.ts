@@ -1,1 +1,1 @@
-export * from "./BridgePage";
+export { BridgePage } from "./BridgePage";

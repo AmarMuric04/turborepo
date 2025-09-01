@@ -1,1 +1,1 @@
-export * from "./Selector";
+export { Selector } from "./Selector";

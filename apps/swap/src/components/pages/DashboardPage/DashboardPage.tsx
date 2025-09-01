@@ -1,9 +1,12 @@
+import { Route } from "src/routes/__root";
 import { sum } from "utilities/math";
 
 const DashboardPage = () => {
   const handleCaclulation = ({ a, b }: { a: number; b: number }) => {
-    return sum(a, b);
+    return sum({ a, b });
   };
+
+  Route.useParams();
 
   return (
     <div>

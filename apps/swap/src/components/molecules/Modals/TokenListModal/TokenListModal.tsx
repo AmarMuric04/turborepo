@@ -11,7 +11,7 @@ import React from "react";
 import { useTokenList } from "src/hooks";
 import { useAccount, useChains, useSwitchChain } from "wagmi";
 import { useDebounce } from "use-debounce";
-import type { TokenInfo } from "src/schemas";
+import type { Chain, TokenInfo } from "src/schemas";
 import useLocalStorage from "use-local-storage";
 import { truncateEthAddress } from "src/utility";
 
@@ -77,7 +77,7 @@ const TokenListModal: React.FC<
     return tokenList.filter(
       (token) => !recentTokenAddresses.has(token.address)
     );
-  }, [tokenList, currentRecentTokens]);
+  }, [JSON.stringify(tokenList), JSON.stringify(currentRecentTokens)]);
 
   const addRecentToken = (token: TokenInfo) => {
     const currentChainRecentTokens = recentTokens[currentChainId]
@@ -104,7 +104,7 @@ const TokenListModal: React.FC<
         token.name.toLowerCase().includes(searchTerm) ||
         token.symbol.toLowerCase().includes(searchTerm)
     );
-  }, [value, tokenList]);
+  }, [JSON.stringify(value), JSON.stringify(tokenList)]);
 
   const handleTokenClick = (token: TokenInfo) => {
     addRecentToken(token);
@@ -117,6 +117,10 @@ const TokenListModal: React.FC<
       setSearchValue("");
     }
   }, [open]);
+
+  const handleSwitchChain = ({ chain }: { chain: Chain }) => {
+    switchChain({ chainId: chain.id });
+  };
 
   const isSearching = isConnected && value;
 
@@ -140,7 +144,7 @@ const TokenListModal: React.FC<
         />
 
         <ChainListDropdown
-          onChainClick={switchChain}
+          onChainClick={handleSwitchChain}
           className="bg-background-secondary flex items-center gap-2 rounded-md p-1"
         >
           <ScaleAnimation>

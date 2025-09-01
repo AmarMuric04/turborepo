@@ -1,1 +1,1 @@
-export * from "./FormCard";
+export { FormCard } from "./FormCard";

@@ -1,1 +1,1 @@
-export * from "./ChainListDropdown";
+export { ChainListDropdown } from "./ChainListDropdown";

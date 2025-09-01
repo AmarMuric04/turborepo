@@ -72,7 +72,7 @@ const SwapForm = () => {
 
   React.useEffect(() => {
     setSelectedTokens(INITIAL_TOKENS);
-  }, [address, chain]);
+  }, [JSON.stringify(address), JSON.stringify(chain)]);
 
   const selectToken0 = (token: TokenInfo) => {
     setSelectedTokens({ ...selectedTokens, token0: token });

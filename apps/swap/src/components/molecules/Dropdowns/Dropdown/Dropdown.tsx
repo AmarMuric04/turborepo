@@ -23,7 +23,7 @@ const Dropdown: React.FC<
             <ScaleAnimation>
               <PopoverButton
                 className={cx(
-                  "inline-flex items-center rounded-md text-base font-medium focus:outline-none",
+                  "inline-flex items-center justify-between rounded-md text-base font-medium focus:outline-none",
                   buttonClassName
                 )}
               >

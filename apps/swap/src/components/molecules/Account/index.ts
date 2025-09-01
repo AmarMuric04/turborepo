@@ -1,1 +1,1 @@
-export * from "./Account";
+export { Account } from "./Account";

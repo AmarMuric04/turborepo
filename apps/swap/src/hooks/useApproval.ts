@@ -37,7 +37,7 @@ export const useTokenApproval = ({
     refetch();
 
     return tx;
-  }, [token, spender, writeContract, refetch]);
+  }, [token, spender, JSON.stringify(writeContract), JSON.stringify(refetch)]);
 
   return {
     allowance,

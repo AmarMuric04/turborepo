@@ -1,2 +1,2 @@
-export * from "./Modal";
-export * from "./TokenListModal";
+export { Modal } from "./Modal";
+export { TokenListModal } from "./TokenListModal";

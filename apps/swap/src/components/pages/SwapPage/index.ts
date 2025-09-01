@@ -1,1 +1,1 @@
-export * from "./SwapPage";
+export { SwapPage } from "./SwapPage";

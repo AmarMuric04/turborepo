@@ -10,4 +10,5 @@ export * from "./Balance";
 export * from "./TokenPrice";
 export * from "./WalletIcon";
 export * from "./Label";
+export * from "./Badge";
 export * from "./Buttons";

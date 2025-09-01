@@ -1,1 +1,1 @@
-export * from "./RequireWalletConnection";
+export { RequireWalletConnection } from "./RequireWalletConnection";

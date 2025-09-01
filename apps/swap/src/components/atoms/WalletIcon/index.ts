@@ -1,1 +1,1 @@
-export * from "./WalletIcon";
+export { WalletIcon } from "./WalletIcon";

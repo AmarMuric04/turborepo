@@ -24,3 +24,18 @@ export const TokenListSchema = z.object({
 });
 
 export type TokenList = z.infer<typeof TokenListSchema>;
+
+export const amountSchema = z.coerce.number().gt(0);
+
+export const tokenSchema = z.union([
+  z.object({
+    value: amountSchema,
+    amountWei: z.string(),
+    isValid: z.literal(true),
+    inputString: z.string(),
+  }),
+  z.object({
+    isValid: z.literal(false),
+    inputString: z.string(),
+  }),
+]);

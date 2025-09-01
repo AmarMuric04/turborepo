@@ -21,6 +21,8 @@ const Button: React.FC<
             "bg-button-primary text-white": variant === "primary",
             "bg-background-secondary border border-border-primary":
               variant === "secondary",
+            "border border-button-primary text-button-primary":
+              variant === "outline",
           }
         )}
         {...props}

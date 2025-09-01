@@ -1,10 +1,14 @@
-const truncateEthAddress = ({
-  address,
-  numOfChars = 4,
-}: {
-  address: string;
-  numOfChars?: number;
-}): string => {
+const FIRST_PART = 1;
+const SECOND_PART = 2;
+
+const truncateEthAddress = (
+  props: Readonly<{
+    address: string;
+    numOfChars?: number;
+  }>
+) => {
+  const { address, numOfChars } = props;
+
   const truncateRegex = new RegExp(
     `^(0x[a-zA-Z0-9]{${numOfChars}})[a-zA-Z0-9]+([a-zA-Z0-9]{${numOfChars}})$`
   );
@@ -14,7 +18,7 @@ const truncateEthAddress = ({
     return address;
   }
 
-  return `${match[1]}…${match[2]}`;
+  return `${match[FIRST_PART]}…${match[SECOND_PART]}`;
 };
 
 export { truncateEthAddress };

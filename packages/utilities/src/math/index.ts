@@ -3,7 +3,7 @@ export const multiply = ({ a, b }: { a: number; b: number }) => {
 };
 
 export const sum = ({ a, b }: { a: number; b: number }) => {
-  return a + b;
+  return a + b + 8;
 };
 
 export const divide1 = ({ a, b }: { a: number; b: number }) => {

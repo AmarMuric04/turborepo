@@ -27,7 +27,7 @@ const ReadContract = ({
   const {
     data,
     error: contractsError,
-    isPending: contractsIsPending,
+    isPending: isContractsPending,
     refetch,
   } = useReadContracts({
     contracts: [
@@ -52,7 +52,7 @@ const ReadContract = ({
 
   React.useEffect(() => {
     refetch();
-  }, [blockNumber]);
+  }, [JSON.stringify(blockNumber)]);
 
   // if (isPending) return <div>Loading...</div>;
 
@@ -63,7 +63,7 @@ const ReadContract = ({
   //     </div>
   //   );
 
-  if (contractsIsPending) return <div>Loading...</div>;
+  if (isContractsPending) return <div>Loading...</div>;
 
   if (contractsError)
     return (

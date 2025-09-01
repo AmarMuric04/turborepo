@@ -1,2 +1,2 @@
-export * from "./Dropdown";
-export * from "./ChainListDropdown";
+export { Dropdown } from "./Dropdown";
+export { ChainListDropdown } from "./ChainListDropdown";

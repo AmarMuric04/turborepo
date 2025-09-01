@@ -6,14 +6,12 @@ import pluginRouter from "@tanstack/eslint-plugin-router";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import defaultConfig from "eslint-configuration";
-import pluginTailwindcss from "eslint-plugin-tailwindcss";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig([
   ...pluginRouter.configs["flat/recommended"],
   ...defaultConfig,
-  ...pluginTailwindcss.configs["flat/recommended"],
   pluginReact.configs.flat.recommended,
 
   {
@@ -23,14 +21,7 @@ export default defineConfig([
       },
     },
     languageOptions: {
-      globals: globals.browser,
-    },
-  },
-
-  {
-    files: ["src/**/*.{ts,tsx}"],
-    languageOptions: {
-      globals: globals.browser,
+      globals: { ...globals.browser, ...globals.node },
       parser: tseslint.parser,
       parserOptions: {
         project: "./tsconfig.json",
@@ -47,5 +38,18 @@ export default defineConfig([
       "react/prop-types": "off",
       "tailwindcss/no-custom-classname": "off",
     },
+  },
+
+  {
+    files: ["vite.config.ts", "wagmi.config.ts"],
+    languageOptions: {
+      globals: globals.browser,
+      parser: tseslint.parser,
+      parserOptions: {
+        project: "./tsconfig.json",
+        tsconfigRootDir: __dirname,
+      },
+    },
+    rules: {},
   },
 ]);

@@ -5,15 +5,16 @@
   "compilerOptions": {
     "types": ["vite/client", "vitest/globals", "vitest/importMeta", "node"],
     "typeRoots": ["./types", "./node_modules/@types", "./node_modules"],
-    "rootDir": ".",
     "outDir": "dist",
     "baseUrl": ".",
+    "noEmit": true,
     "paths": {
       "components/*": ["./src/components/*"]
     },
     "module": "esnext",
     "target": "esnext",
     "jsx": "react-jsx",
-    "tsBuildInfoFile": "./dist/ts-build-info.tsbuildinfo"
+    "tsBuildInfoFile": "./dist/ts-build-info.tsbuildinfo",
+    "strictNullChecks": true
   }
 }

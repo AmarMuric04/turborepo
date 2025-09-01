@@ -1,1 +1,1 @@
-export * from "./MintNFT";
+export { MintNFT } from "./MintNFT";

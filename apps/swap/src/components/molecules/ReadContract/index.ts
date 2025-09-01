@@ -1,1 +1,1 @@
-export * from "./ReadContract";
+export { ReadContract } from "./ReadContract";
