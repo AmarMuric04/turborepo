@@ -39,9 +39,9 @@ export default defineConfig([
     rules: {
       "unused-imports/no-unused-imports": "error",
       "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/no-unused-vars": "off",
       "unused-imports/no-unused-vars": [
-        "warn",
+        "error",
         {
           vars: "all",
           varsIgnorePattern: "^_",
@@ -50,7 +50,7 @@ export default defineConfig([
         },
       ],
       "max-lines": ["error", MAX_LINES],
-      "@typescript-eslint/no-deprecated": "error",
+      // "@typescript-eslint/no-deprecated": "error", // already in strict
       // "one-var": "error",
     },
   },
@@ -151,11 +151,11 @@ export default defineConfig([
         ],
       ],
       "@typescript-eslint/no-inferrable-types": "error",
-      "@typescript-eslint/no-duplicate-enum-values": "error",
+      // "@typescript-eslint/no-duplicate-enum-values": "error", // already in recommended
       "@typescript-eslint/no-empty-function": "error",
-      "@typescript-eslint/no-for-in-array": "error",
-      "@typescript-eslint/no-empty-object-type": "error",
-      "@typescript-eslint/no-invalid-void-type": "error",
+      // "@typescript-eslint/no-for-in-array": "error", // already in recommended
+      // "@typescript-eslint/no-empty-object-type": "error", // already in recommended
+      // "@typescript-eslint/no-invalid-void-type": "error", // already in strict
       "@typescript-eslint/no-loop-func": "error",
 
       "no-magic-numbers": "off",
@@ -167,7 +167,7 @@ export default defineConfig([
       "no-shadow": "off",
       "@typescript-eslint/no-shadow": "error",
 
-      "@typescript-eslint/no-explicit-any": "error",
+      // "@typescript-eslint/no-explicit-any": "error", // already in recommended
 
       "no-use-before-define": "off",
       "@typescript-eslint/no-use-before-define": "error",
@@ -186,10 +186,12 @@ export default defineConfig([
       "@typescript-eslint/prefer-readonly-parameter-types": "error",
       "@typescript-eslint/prefer-reduce-type-parameter": "error",
       "@typescript-eslint/prefer-string-starts-ends-with": "error",
-      "@typescript-eslint/ban-ts-comment": "error",
+      // "@typescript-eslint/ban-ts-comment": "error", // already in recommended
       "@typescript-eslint/promise-function-async": "error",
       "@typescript-eslint/require-array-sort-compare": "error",
       "@typescript-eslint/strict-boolean-expressions": "error",
+
+      "no-await-in-loop": "error",
     },
   },
 ]);
